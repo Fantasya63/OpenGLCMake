@@ -1,0 +1,3 @@
+[submodule "glfw"]
+	path = vendor/glfw
+	url = git@github.com:Fantasya63/glfw.git
