@@ -5,10 +5,7 @@ add_executable(Application)
 
 set(GLFW_LIBRARY_TYPE STATIC)
 set(GLFW_BUILD_EXAMPLES OFF)
-set(GLFW_BUILD_EXAMPLES OFF)
 set(GLFW_BUILD_DOCS OFF)
-set(GLFW_BUILD_WAYLAND ON)
-set(GLDW_BUILD_X11 OFF)
 
 add_subdirectory(vendor/glfw)
 add_subdirectory(vendor/GLad)
@@ -17,6 +14,8 @@ target_include_directories(Application
   PRIVATE 
     "${GLFW_SOURCE_DIR}/include"
     "${glad_SOURCE_DIR}/include"
+  INTERFACE
+    src/Engine/
 )
 
 target_sources(Application
