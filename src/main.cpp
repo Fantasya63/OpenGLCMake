@@ -1,8 +1,6 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include <cstdio>
-#include <iostream>
-#include "Engine/Logger.h"
+#include "Candle/Logger.h"
 
 const int WIDTH = 1280;
 const int HEIGHT = 720;
@@ -21,7 +19,7 @@ void ProcessInput(GLFWwindow* window)
 
 int main(void)
 {
-    LOG_CORE_INFO("HELLO LOG!");
+    Candle::Log::Init();
     GLFWwindow* window;
     
     /* Initialize the library */
@@ -51,10 +49,9 @@ int main(void)
         fprintf(stderr, "Failed to initialize GLAD\n");
         return -1;
     }
-    
-    LOG_CORE_INFO("OpenGL Version: " << glGetString(GL_VERSION)); 
-    LOG_CORE_INFO("Vendor: " << glGetString(GL_VENDOR));
-    LOG_CORE_INFO("Renderer: " << glGetString(GL_RENDERER));
+    CD_CORE_INFO("OpenGL Version: {0}", (const char*) glGetString(GL_VERSION));
+    CD_CORE_INFO("Vendor: {}", (const char*) glGetString(GL_VENDOR));
+    CD_CORE_INFO("Renderer: {}", (const char*) glGetString(GL_RENDERER));
 
     glViewport(0, 0, WIDTH, HEIGHT);
     glClearColor( 0.0f, 0.0f, 0.0f, 0.0f );
@@ -98,7 +95,7 @@ int main(void)
     if (!success)
     {
         glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-        LOG_CORE_ERROR("Vertex Shader Compilation failed! :" << infoLog);
+        CD_CORE_ERROR("Vertex Shader Compilation failed! :", infoLog);
     } 
 
     const char* fragmentShaderSource = R"(
@@ -120,7 +117,7 @@ int main(void)
     if (!success)
     {
         glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
-        LOG_CORE_ERROR("Fragment Shader Compilation failed! :" << infoLog);
+        CD_CORE_ERROR("Fragment Shader Compilation failed! :", infoLog);
     }
 
     unsigned int shaderProgram;
@@ -132,7 +129,7 @@ int main(void)
     glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
     if (!success) {
         glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-        LOG_CORE_ERROR("Failed to link Shader Program! : " << infoLog);
+        CD_CORE_ERROR("Failed to link Shader Program! : ", infoLog);
     }
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
