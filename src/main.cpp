@@ -1,6 +1,10 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+// #include <entt/entt.hpp>
+#include <entt/entt.hpp>
+
 #include "Candle/Logger.h"
+
 
 const int WIDTH = 1280;
 const int HEIGHT = 720;

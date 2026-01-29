@@ -16,12 +16,14 @@ set(GLFW_BUILD_DOCS OFF)
 add_subdirectory(vendor/glfw)
 add_subdirectory(vendor/GLad)
 add_subdirectory(vendor/spdlog)
+add_subdirectory(vendor/entt)
 
 target_include_directories(Application 
   PRIVATE 
     "${GLFW_SOURCE_DIR}/include"
     "${glad_SOURCE_DIR}/include"
     "${spdlog_SOURCE_DIR}/include"
+    "${EnTT_SOURCE_DIR}/single_include"
 )
 
 target_sources(Application
