@@ -30,6 +30,7 @@ target_sources(Application
 	PRIVATE
 	src/main.cpp
     src/Candle/Logger.cpp
+    src/Candle/Core/UUID.cpp
 )
 
 target_link_libraries(Application
