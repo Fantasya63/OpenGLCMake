@@ -3,6 +3,7 @@
   "configurePresets": [
     {
       "name": "Default",
+      "binaryDir": "./build",
       "cacheVariables": {
         "CMAKE_CXX_STANDARD":"20"
       }
