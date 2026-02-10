@@ -19,7 +19,8 @@ add_subdirectory(vendor/spdlog)
 add_subdirectory(vendor/entt)
 
 target_include_directories(Application 
-  PRIVATE 
+  PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/src"
     "${GLFW_SOURCE_DIR}/include"
     "${glad_SOURCE_DIR}/include"
     "${spdlog_SOURCE_DIR}/include"
@@ -39,3 +40,7 @@ target_link_libraries(Application
 	glad
 )
 
+target_precompile_headers(Application
+    PRIVATE 
+    src/Candle/cdpch.h
+)
