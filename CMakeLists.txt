@@ -17,6 +17,7 @@ add_subdirectory(vendor/glfw)
 add_subdirectory(vendor/GLad)
 add_subdirectory(vendor/spdlog)
 add_subdirectory(vendor/entt)
+# add_subdirectory(vendor/assimp)
 
 target_include_directories(Application 
   PRIVATE
@@ -25,6 +26,7 @@ target_include_directories(Application
     "${glad_SOURCE_DIR}/include"
     "${spdlog_SOURCE_DIR}/include"
     "${EnTT_SOURCE_DIR}/single_include"
+  #  "${}"
 )
 
 target_sources(Application
@@ -32,6 +34,8 @@ target_sources(Application
 	src/main.cpp
     src/Candle/Logger.cpp
     src/Candle/Core/UUID.cpp
+    src/Candle/Scene/Scene.cpp
+    src/Candle/Scene/Entity.cpp
 )
 
 target_link_libraries(Application
