@@ -1,6 +1,6 @@
 #pragma once
 #include "Candle/Core/UUID.h"
-#include "entt.hpp"
+#include <entt/entt.hpp>
 
 namespace Candle
 {

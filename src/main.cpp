@@ -1,10 +1,10 @@
+#include <cdpch.h>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-// #include <entt/entt.hpp>
 #include <entt/entt.hpp>
 
 #include "Candle/Logger.h"
-#include "Candle/Core/
+#include "Candle/Scene/Scene.h"
 
 const int WIDTH = 1280;
 const int HEIGHT = 720;
@@ -56,6 +56,12 @@ int main(void)
     CD_CORE_INFO("OpenGL Version: {0}", (const char*) glGetString(GL_VERSION));
     CD_CORE_INFO("Vendor: {}", (const char*) glGetString(GL_VENDOR));
     CD_CORE_INFO("Renderer: {}", (const char*) glGetString(GL_RENDERER));
+
+
+    Candle::Ref<Candle::Scene> activeScene = Candle::CreateRef<Candle::Scene>();
+
+
+
 
     glViewport(0, 0, WIDTH, HEIGHT);
     glClearColor( 0.0f, 0.0f, 0.0f, 0.0f );

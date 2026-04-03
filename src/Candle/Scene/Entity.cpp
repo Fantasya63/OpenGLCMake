@@ -1,3 +1,4 @@
+#include <cdpch.h>
 #include "Entity.h"
 
 Candle::Entity::Entity(entt::entity handle, Scene* scene)
