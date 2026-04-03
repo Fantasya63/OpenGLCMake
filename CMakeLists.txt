@@ -12,17 +12,22 @@ endif()
 set(GLFW_LIBRARY_TYPE STATIC)
 set(GLFW_BUILD_EXAMPLES OFF)
 set(GLFW_BUILD_DOCS OFF)
+set(DGLM_BUILD_TESTS=OFF)
+set(DBUILD_SHARED_LIBS=OFF)
 
 add_subdirectory(vendor/glfw)
 add_subdirectory(vendor/GLad)
 add_subdirectory(vendor/spdlog)
 add_subdirectory(vendor/entt)
+find_package(glm CONFIG REQUIRED)
+target_link_libraries(Application PRIVATE glm::glm)
+
 # add_subdirectory(vendor/assimp)
 
 target_include_directories(Application 
   PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/src"
-    "${GLFW_SOURCE_DIR}/include"
+    "${GLFW_SOURCE_DIR}/inlude"
     "${glad_SOURCE_DIR}/include"
     "${spdlog_SOURCE_DIR}/include"
     "${EnTT_SOURCE_DIR}/single_include"
@@ -53,6 +58,7 @@ target_link_libraries(Application
 	PRIVATE
 	glfw
 	glad
+    glm
 )
 
 target_precompile_headers(Application
